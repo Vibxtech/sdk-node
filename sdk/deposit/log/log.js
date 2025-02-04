@@ -115,3 +115,24 @@ exports.page = async function ({ cursor, limit, after, before, types, depositIds
     };
     return rest.getPage(resource, query, user);
 };
+
+exports.pdf = async function (id, {user} = {}) {
+    /**
+     *
+     * Retrieve a specific Deposit.Log pdf file
+     *
+     * @description Receive a single Deposit.Log pdf file generated in the Stark Bank API by passing its id.
+     *
+     * Parameters (required):
+     * @param id [string]: object unique id. ex: '5656565656565656'
+     *
+     * Parameters (optional):
+     * @param user [Organization/Project object, default null]: Organization or Project object. Not necessary if starkbank.user was set before function call
+     *
+     * Return:
+     * @returns Deposit.Log pdf file
+     *
+     */
+    return rest.getContent(resource, id, user, null, 'pdf');
+};
+
