@@ -241,5 +241,23 @@ declare module 'starkbank' {
                 user?: Project | Organization | null
             }): Promise<deposit.Log[]>;
         }
+
+        /**
+         *
+         * Retrieve a specific Invoice pdf file
+         *
+         * @description Receive a single Invoice pdf file generated in the Stark Bank API by passing its id.
+         *
+         * Parameters (required):
+         * @param id [string]: object unique id. ex: '5656565656565656'
+         *
+         * Parameters (optional):
+         * @param user [Organization/Project object, default null]: Organization or Project object. Not necessary if starkbank.user was set before function call
+         *
+         * Return:
+         * @returns Invoice pdf file
+         *
+         */
+        function pdf(id: string, params?:{ user?: Project | Organization | null}): Promise<Buffer>;
     }
 }
